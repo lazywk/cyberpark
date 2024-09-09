@@ -17,7 +17,7 @@ export default function Home() {
     <div
       className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)]`}
     >
-      <main className="container mx-auto">content</main>
+      content
     </div>
   );
 }
