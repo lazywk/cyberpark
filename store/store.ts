@@ -7,18 +7,21 @@ import { usersApi } from './users/usersApi'
 
 import { productsApi } from './products/productsApi'
 import products from './products/productsSlice'
+import { postsApi } from './posts/postsApi'
 
 export const store = configureStore({
     reducer: {
         [usersApi.reducerPath]: usersApi.reducer,
         [productsApi.reducerPath]: productsApi.reducer,
+        [postsApi.reducerPath]: postsApi.reducer,
         users,
         products
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(
             usersApi.middleware,
-            productsApi.middleware
+            productsApi.middleware,
+            postsApi.middleware
         ),
 })
 

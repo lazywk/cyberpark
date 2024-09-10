@@ -12,3 +12,10 @@ export interface Post {
     views: number;
     userId: number;
 }
+
+export interface PostsResponse {
+    limit: number
+    skip: number
+    total: number
+    posts: Post[]
+}
