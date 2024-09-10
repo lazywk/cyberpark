@@ -60,6 +60,7 @@ const AuthProvider = ({ children }: Props) => {
           setLoading(false);
           setIsLogin(false);
           setUser(response.data);
+          router.push('/home')
         })
         .catch(() => {
           localStorage.clear();

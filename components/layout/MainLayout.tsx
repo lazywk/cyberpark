@@ -16,9 +16,9 @@ export default function MainLayout({ children }: Props) {
     <div>
       <LoadingPage loading={loading} />
       {isLogin ? (
-        <SideLayout>{children}</SideLayout>
+        <SideLayout>{loading ? "" : children}</SideLayout>
       ) : (
-        <AuthLayout>{children}</AuthLayout>
+        <AuthLayout>{loading ? "" : children}</AuthLayout>
       )}
 
       <Toaster position="top-center" />
