@@ -13,9 +13,9 @@ export default function MainLayout({ children }: Props) {
   const { loading, isLogin } = useContext(AuthContext);
 
   return (
-    <div>
+    <div className="pt-[30px] container mx-auto">
       <LoadingPage loading={loading} />
-      {isLogin ? (
+      {isLogin && !loading ? (
         <SideLayout>{loading ? "" : children}</SideLayout>
       ) : (
         <AuthLayout>{loading ? "" : children}</AuthLayout>
