@@ -62,7 +62,7 @@ const AuthProvider = ({ children }: Props) => {
         })
         .then(async (response: AxiosResponse) => {
           setLoading(false);
-          // setIsLogin(false);
+          setIsLogin(false);
           setUser(null);
         })
         .catch(() => {
@@ -80,7 +80,7 @@ const AuthProvider = ({ children }: Props) => {
     } else {
       setLoading(false);
       window.localStorage.clear();
-      // router.push("/login");
+      router.push("/login");
     }
   };
 
