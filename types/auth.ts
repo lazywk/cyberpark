@@ -27,7 +27,7 @@ export interface AuthValuesType {
     isLogin: boolean
     setUser: (value: UserDataType | null) => void
     setLoading: (value: boolean) => void
-    login: (values: LoginParams) => void
+    login: (values: LoginParams, errorFunction: (err: AxiosError) => void) => void
     logout: () => void
 }
 

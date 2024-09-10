@@ -18,7 +18,6 @@ import {
   AuthValuesType,
 } from "@/types/auth";
 import { api } from "@/utils/http";
-import { useAppDispatch } from "@/store/store";
 
 // ** Defaults
 const defaultProvider: AuthValuesType = {
@@ -44,9 +43,6 @@ const AuthProvider = ({ children }: Props) => {
   const [isLogin, setIsLogin] = useState<boolean>(defaultProvider.isLogin);
   const router = useRouter();
 
-  // ** Hooks
-  const dispatch = useAppDispatch();
-
   const initAuth = async (): Promise<void> => {
     const storedToken = window.localStorage.getItem(
       authConfig.storageTokenKeyName
@@ -60,10 +56,10 @@ const AuthProvider = ({ children }: Props) => {
             Authorization: `Bearer ${storedToken}`,
           },
         })
-        .then(async (response: AxiosResponse) => {
+        .then(async (response: AxiosResponse<UserDataType>) => {
           setLoading(false);
           setIsLogin(false);
-          setUser(null);
+          setUser(response.data);
         })
         .catch(() => {
           localStorage.clear();
@@ -94,10 +90,14 @@ const AuthProvider = ({ children }: Props) => {
   ) => {
     api
       .post(authConfig.loginEndpoint, params)
-      .then(async (response: AxiosResponse) => {
-        console.log(response);
-
-        setUser(null);
+      .then(async (response: AxiosResponse<UserDataType>) => {
+        localStorage.setItem(
+          authConfig.storageTokenKeyName,
+          response.data.token
+        );
+        setIsLogin(true);
+        router.push("/home");
+        setUser(response.data);
       })
 
       .catch((err: AxiosError) => {
@@ -107,7 +107,7 @@ const AuthProvider = ({ children }: Props) => {
 
   const handleLogout = () => {
     setUser(null);
-    window.localStorage.clear()
+    window.localStorage.clear();
   };
 
   const values = {
