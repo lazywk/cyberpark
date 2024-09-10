@@ -1,4 +1,5 @@
 import { Product } from "@/types/products";
+import Image from "next/image";
 import React from "react";
 
 type Props = {
@@ -10,10 +11,12 @@ export default function ProductCard({ product }: Props) {
     <div className="w-1/3">
       <div className="relative max-w-sm min-w-[340px] bg-white shadow-md rounded-3xl p-2 mx-1 my-3 cursor-pointer">
         <div className="overflow-x-hidden rounded-2xl relative">
-          <img
+          <Image
             className="h-40 rounded-2xl w-full object-contain"
             src={product.thumbnail}
             alt={product.title}
+            height={200}
+            width={300}
           />
           <p className="absolute right-2 top-2 bg-white rounded-full p-2 cursor-pointer group">
             <svg
