@@ -1,3 +1,4 @@
+import { UsersResponseItem } from '@/types/users'
 import httpBaseQuery from '@/utils/http'
 import { createApi } from '@reduxjs/toolkit/query/react'
 
@@ -5,9 +6,9 @@ export const userssApi = createApi({
     reducerPath: 'userssApi',
     baseQuery: httpBaseQuery(),
     endpoints: (builder) => ({
-        getUsers: builder.query<any[], string>({
-            query: () => ({
-                url: 'users-list/',
+        getUsers: builder.query<UsersResponseItem, string>({
+            query: (params) => ({
+                url: `users?${params}`,
                 method: 'get',
             }),
         }),
