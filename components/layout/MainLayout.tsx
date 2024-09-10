@@ -11,12 +11,14 @@ type Props = {
 export default function MainLayout({ children }: Props) {
   const { loading, isLogin } = useContext(AuthContext);
 
-  if (loading) {
-    return <LoadingPage />;
-  }
-  if (isLogin) {
-    <SideLayout>{children}</SideLayout>;
-  }
-
-  return <AuthLayout>{children}</AuthLayout>;
+  return (
+    <div>
+      <LoadingPage loading={loading} />
+      {isLogin ? (
+        <SideLayout>{children}</SideLayout>
+      ) : (
+        <AuthLayout>{children}</AuthLayout>
+      )}
+    </div>
+  );
 }
