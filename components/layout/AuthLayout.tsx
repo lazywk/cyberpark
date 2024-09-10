@@ -5,5 +5,5 @@ type Props = {
 };
 
 export default function AuthLayout({ children }: Props) {
-  return <div>{children}</div>;
+  return <div className="container mx-auto">{children}</div>;
 }
