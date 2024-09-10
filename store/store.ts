@@ -3,16 +3,22 @@ import { setupListeners } from '@reduxjs/toolkit/query'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 import users from './users/usersSlice'
-import { userssApi } from './users/usersApi'
+import { usersApi } from './users/usersApi'
+
+import { productsApi } from './products/productsApi'
+import products from './products/productsSlice'
 
 export const store = configureStore({
     reducer: {
-        [userssApi.reducerPath]: userssApi.reducer,
+        [usersApi.reducerPath]: usersApi.reducer,
+        [productsApi.reducerPath]: productsApi.reducer,
         users,
+        products
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware().concat(
-            userssApi.middleware,
+            usersApi.middleware,
+            productsApi.middleware
         ),
 })
 

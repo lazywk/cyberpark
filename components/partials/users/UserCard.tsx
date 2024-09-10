@@ -37,10 +37,14 @@ export default function UserCard({ user }: Props) {
                   <div className="w-full flex-none text-lg text-gray-200 font-bold leading-none">
                     {user.firstName} {user.lastName}
                   </div>
-                  <div className="flex-auto text-gray-400 my-1">
+                  <div className="flex-auto text-gray-400 my-1 text-truncate">
                     <span className="mr-3 text-sm">{user.company.title}</span>
                     <span className="mr-3 border-r text-sm border-gray-600"></span>
-                    <span className="text-sm">{user.company.name}</span>
+                    <span
+                      className="text-sm block"
+                    >
+                      {user.company.name}
+                    </span>
                   </div>
                 </div>
               </div>

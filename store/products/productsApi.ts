@@ -1,14 +1,14 @@
-import { UsersResponseItem } from '@/types/users'
+import { ProductsResponse } from '@/types/products'
 import httpBaseQuery from '@/utils/http'
 import { createApi } from '@reduxjs/toolkit/query/react'
 
-export const usersApi = createApi({
-    reducerPath: 'usersApi',
+export const productsApi = createApi({
+    reducerPath: 'productsApi',
     baseQuery: httpBaseQuery(),
     endpoints: (builder) => ({
-        getUsers: builder.query<UsersResponseItem, string>({
+        getProducts: builder.query<ProductsResponse, string>({
             query: (params) => ({
-                url: `users?${params}`,
+                url: `products?${params}`,
                 method: 'get',
             }),
         }),
@@ -35,4 +35,4 @@ export const usersApi = createApi({
     })
 })
 
-export const { useCreateUserMutation, useGetUsersQuery, useUpdateUserMutation, useDeleteUserMutation } = usersApi
+export const { useCreateUserMutation, useGetProductsQuery, useUpdateUserMutation, useDeleteUserMutation } = productsApi
