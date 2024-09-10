@@ -1,5 +1,3 @@
-// import { logoutSuccess } from "@/store/auth/auth";
-// import { store } from "@/store/store";
 import axios from "axios";
 
 const baseURL = process.env.MODE === 'development' ? 'https://dummyjson.com/' : 'https://dummyjson.com/'
@@ -23,7 +21,6 @@ http.interceptors.request.use(
     (error) => Promise.reject(error)
 )
 
-// Javob interceptorini qo'shish
 http.interceptors.response.use(
     (response) => response,
     (error) => {
@@ -40,8 +37,6 @@ const httpBaseQuery = () => async ({ url, method, data, params }: any) => {
         let err: any = axiosError;
 
         if (unAuthorizeCode.includes(err?.response?.status)) {
-            // store.dispatch(logoutSuccess())
-
             return {
                 error: {
                     status: err.response?.status,
