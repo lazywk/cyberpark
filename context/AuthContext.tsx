@@ -60,7 +60,7 @@ const AuthProvider = ({ children }: Props) => {
           setLoading(false);
           setIsLogin(false);
           setUser(response.data);
-          if (router.pathname.startsWith("/login")) {
+          if (router.pathname.startsWith("/login") || router.pathname === "/") {
             router.push("/home");
           }
         })

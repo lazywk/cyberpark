@@ -1,6 +1,6 @@
 import { HomeMenuType } from "@/types/home";
 import React from "react";
-import CheckIcon from "./HomeFeatueIcon";
+import CheckIcon from "./HomeFeatureIcon";
 import Link from "next/link";
 
 
