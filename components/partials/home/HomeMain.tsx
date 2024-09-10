@@ -3,9 +3,7 @@ import { homeMenu } from "@/configs/homeMenu";
 import { AuthContext } from "@/context/AuthContext";
 import React, { useContext } from "react";
 
-type Props = {};
-
-export default function HomeMain({}: Props) {
+export default function HomeMain() {
   const { user } = useContext(AuthContext);
   return (
     <div>

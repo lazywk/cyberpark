@@ -1,13 +1,10 @@
 import { HomeMenuType } from "@/types/home";
 import React from "react";
 import CheckIcon from "./HomeFeatueIcon";
-import { useRouter } from "next/router";
 import Link from "next/link";
 
-type Props = {};
 
 export default function HomeCard({ title, path, features }: HomeMenuType) {
-  const { push } = useRouter();
 
   return (
     <div>

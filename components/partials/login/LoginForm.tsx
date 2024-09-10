@@ -8,9 +8,7 @@ import { AuthContext } from "@/context/AuthContext";
 import { AxiosError } from "axios";
 import toast from "react-hot-toast";
 
-type Props = {};
-
-export default function LoginForm({}: Props) {
+export default function LoginForm() {
   const { login } = useContext(AuthContext);
   const [loading, setLoading] = useState<boolean>(false);
 

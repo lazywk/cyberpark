@@ -2,9 +2,7 @@ import { useGetUsersQuery } from "@/store/users/usersApi";
 import React from "react";
 import UserCard from "./UserCard";
 
-type Props = {};
-
-export default function UsersList({}: Props) {
+export default function UsersList() {
   const { data } = useGetUsersQuery("limit=30", {
     refetchOnMountOrArgChange: true,
   });
