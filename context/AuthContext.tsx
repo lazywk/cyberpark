@@ -109,8 +109,10 @@ const AuthProvider = ({ children }: Props) => {
   };
 
   const handleLogout = () => {
-    setUser(null);
     window.localStorage.clear();
+    setUser(null);
+    setIsLogin(false);
+    router.push("/login");
   };
 
   const values = {
