@@ -12,27 +12,7 @@ export const productsApi = createApi({
                 method: 'get',
             }),
         }),
-        createUser: builder.mutation<any, any>({
-            query: (data) => ({
-                url: `users-create/`,
-                method: 'post',
-                data
-            }),
-        }),
-        updateUser: builder.mutation<any, any>({
-            query: (data) => ({
-                url: `users-update/${data.id}/`,
-                method: 'patch',
-                data
-            }),
-        }),
-        deleteUser: builder.mutation<any, number>({
-            query: (id) => ({
-                url: `users-archive/${id}/`,
-                method: 'patch'
-            }),
-        }),
     })
 })
 
-export const { useCreateUserMutation, useGetProductsQuery, useUpdateUserMutation, useDeleteUserMutation } = productsApi
+export const { useGetProductsQuery } = productsApi
