@@ -1,4 +1,5 @@
 import { User } from "@/types/users";
+import Image from "next/image";
 import React from "react";
 
 type Props = {
@@ -11,10 +12,12 @@ export default function UserCard({ user }: Props) {
       <div className="bg-gray-900 border border-gray-900 shadow-lg  rounded-3xl p-2">
         <div className="flex-none sm:flex">
           <div className=" relative h-20 w-20   sm:mb-0 mb-3">
-            <img
+            <Image
               src={user.image}
               alt="aji"
               className=" w-20 h-20 object-cover rounded-2xl"
+              width={300}
+              height={200}
             />
             <a
               href="#"
