@@ -55,5 +55,4 @@ const httpBaseQuery = () => async ({ url, method, data, params }: any) => {
 };
 
 export const api = http
-
 export default httpBaseQuery
